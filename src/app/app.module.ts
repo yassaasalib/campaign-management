@@ -6,14 +6,19 @@ import { AppComponent } from './app.component';
 import { CampaignComponent } from './campaign/campaign.component';
 import { CampaignService } from './campaign/campaign.service';
 import { DecimalPipe } from '@angular/common';
+import { HeaderComponent } from './header/header.component';
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
-    CampaignComponent
+    CampaignComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [CampaignService, DecimalPipe],
   bootstrap: [AppComponent]

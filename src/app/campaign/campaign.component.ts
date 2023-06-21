@@ -11,17 +11,19 @@ import { DatePipe } from '@angular/common';
 })
 export class CampaignComponent implements OnInit {
   campaigns: Campaign[] = [];
+  searchTerm: string = '';
 
-  constructor(public campaignService: CampaignService, private datePipe: DatePipe) {}
+  constructor(public campaignService: CampaignService, private datePipe: DatePipe) { }
 
   ngOnInit() {
+    this.campaigns = this.campaignService.getCampaigns();
     this.campaignService.getCampaignsUpdatedListener().subscribe(campaigns => {
       this.campaigns = campaigns;
     });
-  };
-    
-  formatDate(date: Date): string | null {
-    return this.datePipe.transform(date, 'MM/dd/yyyy');
+  }
+
+  formatDate(date: Date): string {
+    return this.datePipe.transform(date, 'MM/dd/yyyy') || '';
   }
 
   isActive(campaign: Campaign) {
@@ -30,5 +32,9 @@ export class CampaignComponent implements OnInit {
     let endDate = new Date(campaign.endDate);
 
     return today >= startDate && today <= endDate;
+  }
+
+  search() {
+    this.campaignService.searchCampaigns(this.searchTerm);
   }
 }

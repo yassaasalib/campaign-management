@@ -11,7 +11,16 @@
         <div class="table-content">
             <div class="table-row" *ngFor="let campaign of campaigns">
                 <div class="table-data">{{campaign.name}}</div>
-                <div class="table-data">{{campaign.status}}</div>
+                <div class="table-data">
+                    <ng-container *ngIf="campaign.status == 'active'; then activeTemplate else inactiveTemplate"></ng-container>
+                    <ng-template #activeTemplate>
+                        <fa-icon id="table-data__check" [icon]="faCheck"></fa-icon>
+                    </ng-template>
+                    <ng-template #inactiveTemplate>
+                        <fa-icon id="table-data__times" [icon]="faXmark"></fa-icon>
+                    </ng-template>
+                    {{campaign.status}}
+                </div>
                 <div class="table-data">{{campaign.startDate | date}}</div>
                 <div class="table-data">{{campaign.endDate | date}}</div>
                 <div class="table-data">{{campaign.budget}}</div>

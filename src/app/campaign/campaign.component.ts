@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Campaign } from './campaign.model';
 import { CampaignService } from './campaign.service';
-// import { faXmark } from '@fortawesome/solid-svg-icons/faXmark';
+import { faXmark, faCheck } from '@fortawesome/sharp-solid-svg-icons';
+import type { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
   selector: 'app-campaign',
@@ -13,6 +14,9 @@ export class CampaignComponent implements OnInit {
 
   campaigns: Campaign[] = [];
   searchTerm: string = '';
+
+	faCheck: IconProp = faCheck;
+	faXmark: IconProp = faXmark;
 
   constructor(private campaignService: CampaignService) {}
 

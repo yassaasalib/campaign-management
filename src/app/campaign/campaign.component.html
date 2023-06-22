@@ -1,43 +1,59 @@
-<!-- <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Status</th>
-        <th>Start Date</th>
-        <th>End Date</th>
-        <th>Budget</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let campaign of campaigns"
-          [ngClass]="{'active-campaign': isActive(campaign), 'inactive-campaign': !isActive(campaign)}">
-        <td>{{ campaign.name }}</td>
-        <td>{{ formatDate(campaign.startDate) }}</td>
-        <td>{{ formatDate(campaign.endDate) }}</td>        
-        <td>{{ isActive(campaign) ? 'Active' : 'Inactive' }}</td>
-        <td>{{ campaign.Budget }}</td>
-      </tr>
-    </tbody>
-  </table>
+<!-- 
+   <div>
+    <h1>Campaign List</h1>
+    <div class="search-bar">
+      <input type="text" [(ngModel)]="searchTerm" (input)="onSearchInput()" placeholder="Search by name">
+    </div>
+    <div class="campaign-list">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Status</th>
+            <th>Budget</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let campaign of campaigns">
+            <td>{{ campaign.name }}</td>
+            <td>{{ formatDate(campaign.startDate) }}</td>
+            <td>{{ formatDate(campaign.endDate) }}</td>
+            <td>{{ isActive(campaign) ? 'Active' : 'Inactive' }}</td>
+            <td>{{ campaign.Budget }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
    -->
-
-<div class="campaigns-container">
-  <input [(ngModel)]="searchTerm" placeholder="Search campaigns">
-  <button (click)="search()">Search</button>
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Start Date</th>
-      <th>End Date</th>
-      <th>Budget</th>
-      <th>Status</th>
-    </tr>
-    <tr *ngFor="let campaign of campaigns">
-      <td>{{ campaign.name }}</td>
-      <td>{{ formatDate(campaign.startDate) }}</td>
-      <td>{{ formatDate(campaign.endDate) }}</td>
-      <td>{{ campaign.Budget }}</td>
-      <td>{{ isActive(campaign) ? 'Active' : 'Inactive' }}</td>
-    </tr>
-  </table>
-</div>
+   <div>
+    <h1>Campaign List</h1>
+    <div class="search-bar">
+      <input type="text" [(ngModel)]="searchTerm" (input)="onSearchInput()" placeholder="Search by name">
+    </div>
+    <div class="campaign-list">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Status</th>
+            <th>Budget</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let campaign of campaigns">
+            <td>{{ campaign.name }}</td>
+            <td>{{ formatDate(campaign.startDate) }}</td>
+            <td>{{ formatDate(campaign.endDate) }}</td>
+            <td>{{ isActive(campaign) ? 'Active' : 'Inactive' }}</td>
+            <td>{{ campaign.budget }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

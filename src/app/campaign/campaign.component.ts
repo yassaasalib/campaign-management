@@ -6,14 +6,16 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-campaign',
   templateUrl: './campaign.component.html',
-  styleUrls: ['./campaign.component.sass'],
+  // styleUrls: ['./campaign.component.css'],
   providers: [DatePipe]
 })
 export class CampaignComponent implements OnInit {
   campaigns: Campaign[] = [];
   searchTerm: string = '';
+  startDate: Date | null = null;
+  endDate: Date | null = null;
 
-  constructor(public campaignService: CampaignService, private datePipe: DatePipe) { }
+  constructor(public campaignService: CampaignService, private datePipe: DatePipe) {}
 
   ngOnInit() {
     this.campaigns = this.campaignService.getCampaigns();
@@ -34,7 +36,11 @@ export class CampaignComponent implements OnInit {
     return today >= startDate && today <= endDate;
   }
 
-  search() {
-    this.campaignService.searchCampaigns(this.searchTerm);
+  onSearchInput() {
+    if (!this.searchTerm.trim()) {
+      this.campaignService.searchCampaigns('');
+    } else {
+      this.campaignService.searchCampaigns(this.searchTerm);
+    }
   }
 }

@@ -3,5 +3,5 @@ export interface Campaign {
   name: string;
   startDate: Date;
   endDate: Date;
-  Budget: number;
+  budget: number;
 }

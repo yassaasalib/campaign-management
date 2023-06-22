@@ -44,10 +44,8 @@
 //     this.campaignsUpdated.next([...results]);
 //   }
 // }
-
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-
 import { Campaign } from './campaign.model';
 import { initialCampaigns } from './campaign-data';
 
@@ -74,13 +72,13 @@ export class CampaignService {
   }
 
   searchCampaigns(term: string) {
-    if (!term.trim()) {
-      // If no search term, return all campaigns.
+    const lowerCaseTerm = term.trim().toLowerCase();
+    if (lowerCaseTerm === '') {
       this.campaignsUpdated.next([...this.campaigns]);
       return;
     }
 
-    const results = this.campaigns.filter(campaign => campaign.name.toLowerCase().includes(term.toLowerCase()));
-    this.campaignsUpdated.next([...results]);
+    const filteredCampaigns = this.campaigns.filter(campaign => campaign.name.toLowerCase().includes(lowerCaseTerm));
+    this.campaignsUpdated.next([...filteredCampaigns]);
   }
 }

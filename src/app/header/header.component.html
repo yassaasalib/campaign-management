@@ -1,1 +1,4 @@
-<p>header works!</p>
+<div id="header">
+    <input [(ngModel)]="searchTerm" (input)="onSearchInput()" (focus)="onFocus()" (blur)="onBlur()"
+        placeholder="Search " [ngClass]="{'bigger': isInputFocused}">
+</div>

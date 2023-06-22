@@ -7,23 +7,29 @@ import { CampaignService } from './campaign/campaign.service';
 import { DecimalPipe } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
-
-
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FilterCampaignsPipe } from './campaign/filter-campaigns.pipe';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
     AppComponent,
     CampaignComponent,
-    HeaderComponent
+    HeaderComponent,
+    FilterCampaignsPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule,
+    BrowserAnimationsModule,
+    MatTableModule
   ],
   providers: [CampaignService, DecimalPipe],
   bootstrap: [AppComponent]

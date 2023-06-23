@@ -1,6 +1,152 @@
-.active-campaign
-  background-color: #d4edda
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700')
 
-.inactive-campaign
-    background-color: #f8d7da
+$base-spacing-unit: 34px
+$half-spacing-unit: $base-spacing-unit / 2
 
+$color-alpha: #1772FF
+$color-form-highlight: #EEEEEE
+
+// *
+// *:before
+// *:after
+//   box-sizing: border-box
+
+body
+  padding: $base-spacing-unit
+  font-family: 'expressway', sans-serif
+  margin: 0
+
+.container
+  max-width: 100%
+  margin: 20px
+  margin-top: 90px
+
+.table
+  width: 100%
+  border: 1px solid $color-form-highlight
+  border-radius: 4px
+
+.table-header
+  float: left
+  display: flex
+  height: 64px
+  padding: 0
+  width: 100%
+  padding-left: $half-spacing-unit
+  padding-right: $half-spacing-unit
+  border-bottom: 1px solid $color-form-highlight
+  box-sizing: border-box
+  // justify-content: center
+  align-items: center
+
+.table-labels
+  float: left
+  display: flex
+  width: 100%
+  padding: $half-spacing-unit
+  border-bottom: 1px solid $color-form-highlight
+  box-sizing: border-box
+
+.table-row
+  display: flex
+  width: 100%
+  padding: $half-spacing-unit
+  border-bottom: 1px solid $color-form-highlight
+  box-sizing: border-box
+
+.table-data
+  flex: 1 1 20%
+  text-align: right
+  font-size: 13px
+  font-family: 'expressway', sans-serif
+  font-weight: 300
+
+.header__item
+  flex: 1 1 20%
+  text-transform: uppercase
+  text-align: right
+  font-size: 11px
+
+.table-data:nth-child(2),
+.table-data:nth-child(1),
+.header__item:nth-child(2),
+.header__item:nth-child(1)
+  text-align: left
+
+.table-data:nth-child(3),
+.header__item:nth-child(3)
+  text-align: center
+
+.filter__link
+  color: white
+  text-decoration: none
+  position: relative
+  display: inline-block
+  padding-left: $base-spacing-unit
+  padding-right: $base-spacing-unit
+
+  // &::after
+  //   content: ''
+  //   position: absolute
+  //   right: -($half-spacing-unit * 1.5)
+  //   color: white
+  //   font-size: $half-spacing-unit
+  //   top: 50%
+  //   transform: translateY(-50%)
+
+  // &.desc::after
+  //   content: '(desc)'
+
+  // &.asc::after
+  //   content: '(asc)'
+
+#table-data__times,
+#table-data__check
+  display: flex
+  float: left
+  width: 11px
+  height: 11px
+  margin: 0 5px 0 0
+  padding: 1px
+  font-size: 11px
+  align-items: center
+  justify-content: center
+  background: green
+  vertical-align: middle
+  color: white
+  border-radius: 50%
+
+#table-data__times
+  background: red
+
+.ripple
+  background-position: center
+  transition: background 0.5s
+
+  &:hover
+    background: #c9c9c9 radial-gradient(circle, transparent 1%, #ccc 1%) center/15000%
+
+  &:active
+    background-size: 100%
+    transition: background 0s
+
+.header__bar
+  float: left
+  width: 16px
+  height: 16px
+  margin: 0
+  padding: 15px
+  cursor: pointer
+  border-radius: 50%
+  position: relative
+  overflow: hidden
+
+  &:hover
+    background-color: #e3dddd
+
+  &--icon
+    float: left
+    color: #000
+    margin: 0
+    padding: 0
+    font-size: 20px

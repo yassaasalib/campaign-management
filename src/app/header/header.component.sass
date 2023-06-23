@@ -12,31 +12,39 @@
     align-items: center
     box-sizing: border-box
 
-    input
+    &__input
         float: left
-        width: 200px
-        height: 40px
         margin: 0
         padding: 0 10px
-        font-family:  'expressway', sans-serif
-        font-weight: 300
-        font-size: 13px
         border: 1px solid #000
         border-radius: 4px
         color: #585858
         background: #e8e8e8
         background: #fff
         border: none
-        // appearance: none
-        // -webkit-appearance: none
-        // -moz-appearance: none
         outline: none
-        // text-align: center
-        // box-sizing: border-box
 
-    input.bigger
-        width: 260px
-        font-size: 16px
+        &--search
+            color: #585858
+            font-size: 16px
+            padding-right: 20px
 
-    input:hover
-        background: #e8e8e8
+        &:hover,
+        &:hover input
+          background: #e8e8e8
+
+        input
+            width: 150px
+            height: 40px
+            margin: 0
+            padding: 0
+            font-family: 'expressway', sans-serif
+            font-weight: 300
+            font-size: 13px
+            border: none
+            outline: none
+            overflow: hidden
+
+        input.bigger
+            width: 260px
+            font-size: 16px

@@ -26,11 +26,4 @@ export class CampaignComponent implements OnInit {
       this.campaigns = campaigns;
     });
   }
-  onSearchChanged(term: string) {
-    const startDate: Date | null = null; // Provide the start date
-    const endDate: Date | null = null; // Provide the end date
-    this.searchTerm = term;
-    this.campaignService.searchCampaigns(term, startDate, endDate);
-  }
-  
 }

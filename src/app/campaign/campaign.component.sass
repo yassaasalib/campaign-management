@@ -6,7 +6,6 @@ $half-spacing-unit: $base-spacing-unit / 2
 $color-alpha: #1772FF
 $color-form-highlight: #EEEEEE
 
-
 // *
 // *:before
 // *:after
@@ -25,8 +24,17 @@ body
 .table
   width: 100%
   border: 1px solid $color-form-highlight
+  border-radius: 4px
 
 .table-header
+  float: left
+  display: flex
+  width: 100%
+  padding: $half-spacing-unit
+  border-bottom: 1px solid $color-form-highlight
+  box-sizing: border-box
+
+.table-labels
   float: left
   display: flex
   width: 100%
@@ -44,11 +52,15 @@ body
 .table-data
   flex: 1 1 20%
   text-align: right
+  font-size: 13px
+  font-family: 'expressway', sans-serif
+  font-weight: 300
 
 .header__item
   flex: 1 1 20%
   text-transform: uppercase
   text-align: right
+  font-size: 11px
 
 .table-data:nth-child(2),
 .table-data:nth-child(1),
@@ -59,7 +71,7 @@ body
 .table-data:nth-child(3),
 .header__item:nth-child(3)
   text-align: center
-  
+
 .filter__link
   color: white
   text-decoration: none
@@ -68,17 +80,36 @@ body
   padding-left: $base-spacing-unit
   padding-right: $base-spacing-unit
 
-  &::after
-    content: ''
-    position: absolute
-    right: -($half-spacing-unit * 1.5)
-    color: white
-    font-size: $half-spacing-unit
-    top: 50%
-    transform: translateY(-50%)
+  // &::after
+  //   content: ''
+  //   position: absolute
+  //   right: -($half-spacing-unit * 1.5)
+  //   color: white
+  //   font-size: $half-spacing-unit
+  //   top: 50%
+  //   transform: translateY(-50%)
 
-  &.desc::after
-    content: '(desc)'
+  // &.desc::after
+  //   content: '(desc)'
 
-  &.asc::after
-    content: '(asc)'
+  // &.asc::after
+  //   content: '(asc)'
+
+#table-data__times,
+#table-data__check
+  display: flex
+  float: left
+  width: 11px
+  height: 11px
+  font-size: 11px
+  margin: 0 5px 0 0
+  padding: 1px
+  align-items: center
+  justify-content: center
+  background: green
+  vertical-align: middle
+  color: white
+  border-radius: 50%
+
+#table-data__times
+  background: red

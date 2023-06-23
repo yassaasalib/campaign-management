@@ -1,7 +1,10 @@
-<app-header (searchChanged)="onSearchChanged($event)"></app-header>
+<!-- <app-header (searchChanged)="onSearchChanged($event)"></app-header> -->
 <div class="container">
     <div class="table">
         <div class="table-header">
+            <div class="header__item">Name</div>
+        </div>
+        <div class="table-labels">
             <div class="header__item">Name</div>
             <div class="header__item">Status</div>
             <div class="header__item">Start Date</div>
@@ -12,7 +15,7 @@
             <div class="table-row" *ngFor="let campaign of campaigns">
                 <div class="table-data">{{campaign.name}}</div>
                 <div class="table-data">
-                    <ng-container *ngIf="campaign.status == 'active'; then activeTemplate else inactiveTemplate"></ng-container>
+                    <ng-container *ngIf="campaign.status === 'Active'; then activeTemplate else inactiveTemplate"></ng-container>
                     <ng-template #activeTemplate>
                         <fa-icon id="table-data__check" [icon]="faCheck"></fa-icon>
                     </ng-template>
@@ -23,7 +26,9 @@
                 </div>
                 <div class="table-data">{{campaign.startDate | date}}</div>
                 <div class="table-data">{{campaign.endDate | date}}</div>
-                <div class="table-data">{{campaign.budget}}</div>
+                <!-- <div class="table-data">{{campaign.budget}}</div> -->
+                <div class="table-data">{{ campaign.budget | currency: 'USD': 'symbol' }}</div>
+                
             </div>
         </div>
     </div>

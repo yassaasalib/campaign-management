@@ -4,11 +4,29 @@
         <mat-sidenav-content>
             <div id="panel">
               <div id="panel__container">
-                <h3>fdk</h3>
+                <div class="filters">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Start Date</mat-label>
+                    <input matInput [matDatepicker]="startDatePicker" placeholder="Start Date" [(ngModel)]="startDate"
+                      (dateChange)="filterCampaigns()">
+                    <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #startDatePicker></mat-datepicker>
+                  </mat-form-field>
+                
+                  <mat-form-field appearance="fill">
+                    <mat-label>End Date</mat-label>
+                    <input matInput [matDatepicker]="endDatePicker" placeholder="End Date" [(ngModel)]="endDate"
+                      (dateChange)="filterCampaigns()">
+                    <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #endDatePicker></mat-datepicker>
+                  </mat-form-field>
+                </div>
+                
               </div>
             </div>
         </mat-sidenav-content>
     </mat-sidenav-container>
 </ng-container>
 <app-header (searchChanged)="onSearchChanged($event)"></app-header>
+
 <router-outlet></router-outlet>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CampaignService } from './campaign/campaign.service';
 import { SidebarService } from './shared/sidebar.service';
 
@@ -7,10 +7,12 @@ import { SidebarService } from './shared/sidebar.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.sass']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'campaign-management';
   searchTerm: string = '';
   isSidePanelOpen = false;
+  startDate: Date | null = null;
+  endDate: Date | null = null;
   
   constructor(private campaignService: CampaignService, private sidebarService: SidebarService) {}
 
@@ -19,10 +21,17 @@ export class AppComponent {
       this.isSidePanelOpen = isOpen;
     });
   }
+
   onSearchChanged(term: string) {
-    const startDate: Date | null = null; // Provide the start date
-    const endDate: Date | null = null; // Provide the end date
     this.searchTerm = term;
-    this.campaignService.searchCampaigns(term, startDate, endDate);
+    this.filterCampaigns();
+  }
+
+  filterCampaigns() {
+    this.campaignService.filterCampaigns(this.searchTerm, this.startDate, this.endDate);
+  }
+
+  toggleSidePanel() {
+    this.sidebarService.toggleSidebar();
   }
 }

@@ -26,7 +26,7 @@ export class CampaignService {
     return this.campaignsUpdated.asObservable();
   }
 
-  searchCampaigns(searchTerm: string, startDate: Date | null, endDate: Date | null) {
+  filterCampaigns(searchTerm: string, startDate: Date | null, endDate: Date | null) {
     const filteredCampaigns = this.campaigns.filter((campaign) => {
       const campaignStartDate = new Date(campaign.startDate);
       const campaignEndDate = new Date(campaign.endDate);

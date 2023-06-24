@@ -1,7 +1,6 @@
 <router-outlet></router-outlet>
 <div class="container">
-  <h2>Campaign List</h2>
-  <div class="filters">
+  <!-- <div class="filters">
     <mat-form-field appearance="fill">
       <mat-label>Start Date</mat-label>
       <input matInput [matDatepicker]="startDatePicker" placeholder="Start Date" [(ngModel)]="startDate"
@@ -17,11 +16,11 @@
       <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
       <mat-datepicker #endDatePicker></mat-datepicker>
     </mat-form-field>
-  </div>
+  </div> -->
 
   <div class="table">
     <div class="table-header">
-      <div class="header__bar ripple">
+      <div class="header__bar ripple"  (click)="toggleSidePanel()">
         <fa-icon class="header__bar--icon" [icon]="faBarsFilter"></fa-icon>
       </div>
     </div>

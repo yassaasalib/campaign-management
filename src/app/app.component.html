@@ -1,2 +1,13 @@
+<ng-container *ngIf="isSidePanelOpen">
+    <mat-sidenav-container>
+        <mat-sidenav-content>
+            <div id="panel">
+              <div id="panel__container">
+                <h3>fdk</h3>
+              </div>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</ng-container>
 <app-header (searchChanged)="onSearchChanged($event)"></app-header>
 <router-outlet></router-outlet>

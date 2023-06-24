@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilterCampaignsPipe } from './campaign/filter-campaigns.pipe';
 import { MatTableModule } from '@angular/material/table';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatNativeDateModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
-    MatTableModule
+    MatTableModule,
+    MatSidenavModule
   ],
   providers: [CampaignService, DecimalPipe],
   bootstrap: [AppComponent]

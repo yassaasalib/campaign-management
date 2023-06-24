@@ -6,14 +6,16 @@ import { CampaignService } from './campaign/campaign.service';
 import { DecimalPipe } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatInputModule } from '@angular/material/input';
-import { MatNativeDateModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilterCampaignsPipe } from './campaign/filter-campaigns.pipe';
 import { MatTableModule } from '@angular/material/table';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatDatepickerModule,
     MatInputModule,
     MatNativeDateModule,
+    MatIconModule,
+    MatFormFieldModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
     MatTableModule,

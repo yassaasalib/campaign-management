@@ -1,38 +1,55 @@
-<!-- <app-header (searchChanged)="onSearchChanged($event)"></app-header> -->
-
+<router-outlet></router-outlet>
 <div class="container">
-    <div class="table">
-        <div class="table-header">
-            <div class="header__bar ripple">
-                <fa-icon class="header__bar--icon" [icon]="faBarsFilter"></fa-icon>
-            </div>
-        </div>
-        <div class="table-labels">
-            <div class="header__item">Name</div>
-            <div class="header__item">Status</div>
-            <div class="header__item">Start Date</div>
-            <div class="header__item">End Date</div>
-            <div class="header__item">Budget</div>
-        </div>
-        <div class="table-content">
-            <div class="table-row" *ngFor="let campaign of campaigns">
-                <div class="table-data">{{campaign.name}}</div>
-                <div class="table-data">
-                    <ng-container *ngIf="campaign.status === 'Active'; then activeTemplate else inactiveTemplate"></ng-container>
-                    <ng-template #activeTemplate>
-                        <fa-icon id="table-data__check" [icon]="faCheck"></fa-icon>
-                    </ng-template>
-                    <ng-template #inactiveTemplate>
-                        <fa-icon id="table-data__times" [icon]="faXmark"></fa-icon>
-                    </ng-template>
-                    {{campaign.status}}
-                </div>
-                <div class="table-data">{{campaign.startDate | date}}</div>
-                <div class="table-data">{{campaign.endDate | date}}</div>
-                <!-- <div class="table-data">{{campaign.budget}}</div> -->
-                <div class="table-data">{{ campaign.budget | currency: 'USD': 'symbol' }}</div>
-                
-            </div>
-        </div>
+  <h2>Campaign List</h2>
+  <div class="filters">
+    <mat-form-field appearance="fill">
+      <mat-label>Start Date</mat-label>
+      <input matInput [matDatepicker]="startDatePicker" placeholder="Start Date" [(ngModel)]="startDate"
+        (dateChange)="filterCampaigns()">
+      <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #startDatePicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>End Date</mat-label>
+      <input matInput [matDatepicker]="endDatePicker" placeholder="End Date" [(ngModel)]="endDate"
+        (dateChange)="filterCampaigns()">
+      <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #endDatePicker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <div class="table">
+    <div class="table-header">
+      <div class="header__bar ripple">
+        <fa-icon class="header__bar--icon" [icon]="faBarsFilter"></fa-icon>
+      </div>
     </div>
+    <div class="table-labels">
+      <div class="header__item">Name</div>
+      <div class="header__item">Status</div>
+      <div class="header__item">Start Date</div>
+      <div class="header__item">End Date</div>
+      <div class="header__item">Budget</div>
+    </div>
+    <div class="table-content">
+      <div class="table-row" *ngFor="let campaign of filteredCampaigns">
+        <div class="table-data">{{ campaign.name }}</div>
+        <div class="table-data">
+          <ng-container *ngIf="campaign.status === 'Active'; then activeTemplate else inactiveTemplate"></ng-container>
+          <ng-template #activeTemplate>
+            <fa-icon id="table-data__check" [icon]="faCheck"></fa-icon>
+          </ng-template>
+          <ng-template #inactiveTemplate>
+            <fa-icon id="table-data__times" [icon]="faXmark"></fa-icon>
+          </ng-template>
+          {{ campaign.status }}
+        </div>
+        <div class="table-data">{{ campaign.startDate | date }}</div>
+        <div class="table-data">{{ campaign.endDate | date }}</div>
+        <div class="table-data">{{ campaign.budget | currency: 'USD': 'symbol' }}</div>
+      </div>
+      <div class="no-campaigns" *ngIf="filteredCampaigns.length === 0">No campaigns found.</div>
+    </div>
+  </div>
 </div>

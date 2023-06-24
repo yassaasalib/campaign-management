@@ -6,6 +6,12 @@ const routes: Routes = [
 	{
 		path: '',
 		component: CampaignComponent,
+		children: [
+			{
+				path: 'how',
+				loadChildren: () => import('./filter-date/campaign-filter-date.module').then((m) => m.CampaignFilterDateModule),
+			}
+		]
 	},
 ];
 

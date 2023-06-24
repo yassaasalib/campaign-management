@@ -1,7 +1,16 @@
-<div id="header">
+<!-- <div id="header">
     <div id="header__input">
         <fa-icon id="header__input--search" [icon]="faMagnifyingGlass"></fa-icon>
         <input [(ngModel)]="searchTerm" (input)="onSearchInput()" (focus)="onFocus()" (blur)="onBlur()"
             placeholder="Search " [ngClass]="{'bigger': isInputFocused}">
     </div>
-</div>
+</div> -->
+
+<div id="header">
+    <div id="header__input">
+      <fa-icon id="header__input--search" [icon]="faMagnifyingGlass"></fa-icon>
+      <input [(ngModel)]="searchTerm" (input)="onSearchInput()" (focus)="onFocus()" (blur)="onBlur()"
+        placeholder="Search" [ngClass]="{'bigger': isInputFocused}">
+    </div>
+  </div>
+  
